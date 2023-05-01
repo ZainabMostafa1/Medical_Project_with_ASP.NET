@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="drDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="add_patient_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="cxr_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="CXR" Type="nvarchar" MaxLength="50" />
+          <Property Name="r_Patientsick_ck" Type="bit" />
+          <Property Name="r_Followup_routine_ck" Type="bit" />
+          <Property Name="r_Followup_after_exacerbation_ck" Type="bit" />
+          <Property Name="r_other_ck" Type="bit" />
+          <Property Name="r_other_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CXR_Findings" Type="nvarchar" MaxLength="50" />
+          <Property Name="CT_Findings" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bronchiectasis" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bronchial_Wall_Thickening" Type="nvarchar" MaxLength="50" />
+          <Property Name="Atelectasis" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mucous_Plugging" Type="nvarchar" MaxLength="50" />
+          <Property Name="Air_Trapping" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opacity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ground_Glass_Appearance" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other_Findings" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="medication_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="p_none_ck" Type="bit" />
+          <Property Name="p_Dornasealfa_ck" Type="bit" />
+          <Property Name="p_Acetylcystein_ck" Type="bit" />
+          <Property Name="p_Ibuprofen_ck" Type="bit" />
+          <Property Name="p_salineLeukotriene_ck" Type="bit" />
+          <Property Name="p_modifier_ck" Type="bit" />
+          <Property Name="p_Mastcell_ck" Type="bit" />
+          <Property Name="p_stabilizer_ck" Type="bit" />
+          <Property Name="p_Antifungal_ck" Type="bit" />
+          <Property Name="p_Steroid_oral_ck" Type="bit" />
+          <Property Name="p_Steroid_inhaled_ck" Type="bit" />
+          <Property Name="p_Steroid_Bronchodilator_ck" Type="bit" />
+          <Property Name="p_inhaled_Shortacting_ck" Type="bit" />
+          <Property Name="p_Longacting_anticholinergic_ck" Type="bit" />
+          <Property Name="p_Betaagonist_ck" Type="bit" />
+          <Property Name="p_others_ck" Type="bit" />
+          <Property Name="p_other_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Saline_concentration" Type="nvarchar" MaxLength="50" />
+          <Property Name="non_p_Pancreat_ck" Type="bit" />
+          <Property Name="non_p_Proton_ck" Type="bit" />
+          <Property Name="non_p_CF_ck" Type="bit" />
+          <Property Name="non_p_vitamin_ck" Type="bit" />
+          <Property Name="non_p_Supplemental_ck" Type="bit" />
+          <Property Name="c_none_ck" Type="bit" />
+          <Property Name="c_CFRD_ck" Type="bit" />
+          <Property Name="c_Liver_ck" Type="bit" />
+          <Property Name="c_gall_ck" Type="bit" />
+          <Property Name="c_ABPA_ck" Type="bit" />
+          <Property Name="c_Asthma_ck" Type="bit" />
+          <Property Name="c_DIOS_ck" Type="bit" />
+          <Property Name="c_GERD_ck" Type="bit" />
+          <Property Name="c_Nasa_ck" Type="bit" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="p_short_ck" Type="bit" />
+        </EntityType>
+        <EntityType Name="microbiology_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="bacterial" Type="nvarchar" MaxLength="50" />
+          <Property Name="source_bacterial" Type="nvarchar" MaxLength="50" />
+          <Property Name="other_source" Type="nvarchar" MaxLength="50" />
+          <Property Name="microorganisms" Type="nvarchar" MaxLength="50" />
+          <Property Name="Staphoylcoccus_ck" Type="bit" />
+          <Property Name="sensitive_ck" Type="bit" />
+          <Property Name="MRSA_ck" Type="bit" />
+          <Property Name="Pseudomonas_ck" Type="bit" />
+          <Property Name="Burkholderia_ck" Type="bit" />
+          <Property Name="Stenotrophomonas_ck" Type="bit" />
+          <Property Name="Alcaligenes_ck" Type="bit" />
+          <Property Name="Aspergillus_ck" Type="bit" />
+          <Property Name="Candida_ck" Type="bit" />
+          <Property Name="other_microorganisms_culture_ck" Type="bit" />
+          <Property Name="other_microorganisms_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="mycobacterial" Type="nvarchar" MaxLength="50" />
+          <Property Name="source_mycrobacterial" Type="nvarchar" MaxLength="50" />
+          <Property Name="other_mycobacterial" Type="nvarchar" MaxLength="50" />
+          <Property Name="tuberculosis_ck" Type="bit" />
+          <Property Name="abscessus_ck" Type="bit" />
+          <Property Name="avium_ck" Type="bit" />
+          <Property Name="other_mycobacteria_culture_ck" Type="bit" />
+          <Property Name="none_ck" Type="bit" />
+          <Property Name="other_myco_culture_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="patient_demographics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_of_birth" Type="datetime" />
+          <Property Name="gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="sweat_chloride" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_sweat_chloride" Type="datetime" />
+          <Property Name="cftr_genotype_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="cftr_genotype_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_of_cftr" Type="datetime" />
+          <Property Name="del" Type="bit" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PFT_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="PFT" Type="nvarchar" MaxLength="50" />
+          <Property Name="r_Patient_refused_ck" Type="bit" />
+          <Property Name="r_Availability_ofPFT_ck" Type="bit" />
+          <Property Name="r_equipment_ck" Type="bit" />
+          <Property Name="r_other_ck" Type="bit" />
+          <Property Name="r_other_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEV1" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEV1_Predicted" Type="nvarchar" MaxLength="50" />
+          <Property Name="FVC" Type="nvarchar" MaxLength="50" />
+          <Property Name="FVC_Predicted" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEF25" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEF25_Predicted" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEV1_FVC_Ratio" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="upload_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_id" Type="int" />
+          <Property Name="del" Type="bit" />
+          <Property Name="img_tb" Type="nvarchar(max)" />
+          <Property Name="file_tb" Type="nvarchar(max)" />
+          <Property Name="p_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="p_code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="visit_information_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pt_id" Type="int" />
+          <Property Name="pt_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="del" Type="bit" />
+          <Property Name="date_of_visit" Type="datetime" />
+          <Property Name="age" Type="nvarchar" MaxLength="50" />
+          <Property Name="medecation" Type="nvarchar(max)" />
+          <Property Name="height" Type="nvarchar" MaxLength="50" />
+          <Property Name="weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="pulmonary" Type="nvarchar" MaxLength="50" />
+          <Property Name="airway" Type="nvarchar" MaxLength="50" />
+          <Property Name="oral" Type="nvarchar" MaxLength="50" />
+          <Property Name="days_treated_oral" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_treated_oral" Type="datetime" />
+          <Property Name="inhaled" Type="nvarchar" MaxLength="50" />
+          <Property Name="days_treated_inhaled" Type="nvarchar" MaxLength="50" />
+          <Property Name="intravenous" Type="nvarchar" MaxLength="50" />
+          <Property Name="days_treated_intravenou" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospitalized" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_hospitalized" Type="datetime" />
+          <Property Name="hospital_Pulmonary_exacerbatio" Type="bit" />
+          <Property Name="hospital_Pulmonary_complication" Type="bit" />
+          <Property Name="hospital_Gastrointestinal" Type="bit" />
+          <Property Name="hospital_Sinus" Type="bit" />
+          <Property Name="hospital_other" Type="bit" />
+          <Property Name="hospital_other_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="days_hospitalized" Type="nvarchar" MaxLength="50" />
+          <Property Name="iv" Type="nvarchar" MaxLength="50" />
+          <Property Name="reason_iv" Type="nvarchar" MaxLength="50" />
+          <Property Name="iv_pulmonary" Type="bit" />
+          <Property Name="iv_pulmonary_complication" Type="bit" />
+          <Property Name="iv_Gastrointestinal" Type="bit" />
+          <Property Name="iv_sinus" Type="bit" />
+          <Property Name="iv_other" Type="bit" />
+          <Property Name="iv_other_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="days_iv" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="reason_hospital" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="drDBModelStoreContainer">
+          <EntitySet Name="add_patient_tb" EntityType="Self.add_patient_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cxr_tb" EntityType="Self.cxr_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medication_tb" EntityType="Self.medication_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="microbiology_tb" EntityType="Self.microbiology_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient_demographics" EntityType="Self.patient_demographics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PFT_tb" EntityType="Self.PFT_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="upload_tb" EntityType="Self.upload_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="visit_information_tb" EntityType="Self.visit_information_tb" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="drDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="drDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="patient_demographics" EntityType="drDBModel.patient_demographics" />
+          <EntitySet Name="visit_information_tb" EntityType="drDBModel.visit_information_tb" />
+          <EntitySet Name="add_patient_tb" EntityType="drDBModel.add_patient_tb" />
+          <EntitySet Name="microbiology_tb" EntityType="drDBModel.microbiology_tb" />
+          <EntitySet Name="medication_tb" EntityType="drDBModel.medication_tb" />
+          <EntitySet Name="PFT_tb" EntityType="drDBModel.PFT_tb" />
+          <EntitySet Name="cxr_tb" EntityType="drDBModel.cxr_tb" />
+          <EntitySet Name="upload_tb" EntityType="drDBModel.upload_tb" />
+          <EntitySet Name="user" EntityType="drDBModel.user" />
+        </EntityContainer>
+        <EntityType Name="patient_demographics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sweat_chloride" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_sweat_chloride" Type="DateTime" Precision="3" />
+          <Property Name="cftr_genotype_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cftr_genotype_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_of_cftr" Type="DateTime" Precision="3" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="visit_information_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="date_of_visit" Type="DateTime" Precision="3" />
+          <Property Name="age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="medecation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pulmonary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="airway" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oral" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="days_treated_oral" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_treated_oral" Type="DateTime" Precision="3" />
+          <Property Name="inhaled" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="days_treated_inhaled" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="intravenous" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="days_treated_intravenou" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospitalized" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_hospitalized" Type="DateTime" Precision="3" />
+          <Property Name="hospital_Pulmonary_exacerbatio" Type="Boolean" />
+          <Property Name="hospital_Pulmonary_complication" Type="Boolean" />
+          <Property Name="hospital_Gastrointestinal" Type="Boolean" />
+          <Property Name="hospital_Sinus" Type="Boolean" />
+          <Property Name="hospital_other" Type="Boolean" />
+          <Property Name="hospital_other_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="days_hospitalized" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reason_iv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iv_pulmonary" Type="Boolean" />
+          <Property Name="iv_pulmonary_complication" Type="Boolean" />
+          <Property Name="iv_Gastrointestinal" Type="Boolean" />
+          <Property Name="iv_sinus" Type="Boolean" />
+          <Property Name="iv_other" Type="Boolean" />
+          <Property Name="iv_other_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="days_iv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reason_hospital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="add_patient_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="microbiology_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="bacterial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="source_bacterial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other_source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="microorganisms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Staphoylcoccus_ck" Type="Boolean" />
+          <Property Name="sensitive_ck" Type="Boolean" />
+          <Property Name="MRSA_ck" Type="Boolean" />
+          <Property Name="Pseudomonas_ck" Type="Boolean" />
+          <Property Name="Burkholderia_ck" Type="Boolean" />
+          <Property Name="Stenotrophomonas_ck" Type="Boolean" />
+          <Property Name="Alcaligenes_ck" Type="Boolean" />
+          <Property Name="Aspergillus_ck" Type="Boolean" />
+          <Property Name="Candida_ck" Type="Boolean" />
+          <Property Name="other_microorganisms_culture_ck" Type="Boolean" />
+          <Property Name="other_microorganisms_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mycobacterial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="source_mycrobacterial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other_mycobacterial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tuberculosis_ck" Type="Boolean" />
+          <Property Name="abscessus_ck" Type="Boolean" />
+          <Property Name="avium_ck" Type="Boolean" />
+          <Property Name="other_mycobacteria_culture_ck" Type="Boolean" />
+          <Property Name="none_ck" Type="Boolean" />
+          <Property Name="other_myco_culture_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="medication_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="p_none_ck" Type="Boolean" />
+          <Property Name="p_Dornasealfa_ck" Type="Boolean" />
+          <Property Name="p_Acetylcystein_ck" Type="Boolean" />
+          <Property Name="p_Ibuprofen_ck" Type="Boolean" />
+          <Property Name="p_salineLeukotriene_ck" Type="Boolean" />
+          <Property Name="p_modifier_ck" Type="Boolean" />
+          <Property Name="p_Mastcell_ck" Type="Boolean" />
+          <Property Name="p_stabilizer_ck" Type="Boolean" />
+          <Property Name="p_Antifungal_ck" Type="Boolean" />
+          <Property Name="p_Steroid_oral_ck" Type="Boolean" />
+          <Property Name="p_Steroid_inhaled_ck" Type="Boolean" />
+          <Property Name="p_Steroid_Bronchodilator_ck" Type="Boolean" />
+          <Property Name="p_inhaled_Shortacting_ck" Type="Boolean" />
+          <Property Name="p_Longacting_anticholinergic_ck" Type="Boolean" />
+          <Property Name="p_Betaagonist_ck" Type="Boolean" />
+          <Property Name="p_others_ck" Type="Boolean" />
+          <Property Name="p_other_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Saline_concentration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="non_p_Pancreat_ck" Type="Boolean" />
+          <Property Name="non_p_Proton_ck" Type="Boolean" />
+          <Property Name="non_p_CF_ck" Type="Boolean" />
+          <Property Name="non_p_vitamin_ck" Type="Boolean" />
+          <Property Name="non_p_Supplemental_ck" Type="Boolean" />
+          <Property Name="c_none_ck" Type="Boolean" />
+          <Property Name="c_CFRD_ck" Type="Boolean" />
+          <Property Name="c_Liver_ck" Type="Boolean" />
+          <Property Name="c_gall_ck" Type="Boolean" />
+          <Property Name="c_ABPA_ck" Type="Boolean" />
+          <Property Name="c_Asthma_ck" Type="Boolean" />
+          <Property Name="c_DIOS_ck" Type="Boolean" />
+          <Property Name="c_GERD_ck" Type="Boolean" />
+          <Property Name="c_Nasa_ck" Type="Boolean" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="p_short_ck" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PFT_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="PFT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="r_Patient_refused_ck" Type="Boolean" />
+          <Property Name="r_Availability_ofPFT_ck" Type="Boolean" />
+          <Property Name="r_equipment_ck" Type="Boolean" />
+          <Property Name="r_other_ck" Type="Boolean" />
+          <Property Name="r_other_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEV1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEV1_Predicted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FVC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FVC_Predicted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEF25" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEF25_Predicted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEV1_FVC_Ratio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="cxr_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pt_id" Type="Int32" />
+          <Property Name="pt_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="CXR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="r_Patientsick_ck" Type="Boolean" />
+          <Property Name="r_Followup_routine_ck" Type="Boolean" />
+          <Property Name="r_Followup_after_exacerbation_ck" Type="Boolean" />
+          <Property Name="r_other_ck" Type="Boolean" />
+          <Property Name="r_other_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CXR_Findings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CT_Findings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bronchiectasis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bronchial_Wall_Thickening" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Atelectasis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mucous_Plugging" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Air_Trapping" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Opacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ground_Glass_Appearance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Findings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="upload_tb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_id" Type="Int32" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="img_tb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="file_tb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="p_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="del" Type="Boolean" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="drDBModelStoreContainer" CdmEntityContainer="drDBEntities">
+          <EntitySetMapping Name="patient_demographics">
+            <EntityTypeMapping TypeName="drDBModel.patient_demographics">
+              <MappingFragment StoreEntitySet="patient_demographics">
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="date_of_cftr" ColumnName="date_of_cftr" />
+                <ScalarProperty Name="cftr_genotype_2" ColumnName="cftr_genotype_2" />
+                <ScalarProperty Name="cftr_genotype_1" ColumnName="cftr_genotype_1" />
+                <ScalarProperty Name="date_sweat_chloride" ColumnName="date_sweat_chloride" />
+                <ScalarProperty Name="sweat_chloride" ColumnName="sweat_chloride" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visit_information_tb">
+            <EntityTypeMapping TypeName="drDBModel.visit_information_tb">
+              <MappingFragment StoreEntitySet="visit_information_tb">
+                <ScalarProperty Name="reason_hospital" ColumnName="reason_hospital" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="days_iv" ColumnName="days_iv" />
+                <ScalarProperty Name="iv_other_name" ColumnName="iv_other_name" />
+                <ScalarProperty Name="iv_other" ColumnName="iv_other" />
+                <ScalarProperty Name="iv_sinus" ColumnName="iv_sinus" />
+                <ScalarProperty Name="iv_Gastrointestinal" ColumnName="iv_Gastrointestinal" />
+                <ScalarProperty Name="iv_pulmonary_complication" ColumnName="iv_pulmonary_complication" />
+                <ScalarProperty Name="iv_pulmonary" ColumnName="iv_pulmonary" />
+                <ScalarProperty Name="reason_iv" ColumnName="reason_iv" />
+                <ScalarProperty Name="iv" ColumnName="iv" />
+                <ScalarProperty Name="days_hospitalized" ColumnName="days_hospitalized" />
+                <ScalarProperty Name="hospital_other_name" ColumnName="hospital_other_name" />
+                <ScalarProperty Name="hospital_other" ColumnName="hospital_other" />
+                <ScalarProperty Name="hospital_Sinus" ColumnName="hospital_Sinus" />
+                <ScalarProperty Name="hospital_Gastrointestinal" ColumnName="hospital_Gastrointestinal" />
+                <ScalarProperty Name="hospital_Pulmonary_complication" ColumnName="hospital_Pulmonary_complication" />
+                <ScalarProperty Name="hospital_Pulmonary_exacerbatio" ColumnName="hospital_Pulmonary_exacerbatio" />
+                <ScalarProperty Name="date_hospitalized" ColumnName="date_hospitalized" />
+                <ScalarProperty Name="hospitalized" ColumnName="hospitalized" />
+                <ScalarProperty Name="days_treated_intravenou" ColumnName="days_treated_intravenou" />
+                <ScalarProperty Name="intravenous" ColumnName="intravenous" />
+                <ScalarProperty Name="days_treated_inhaled" ColumnName="days_treated_inhaled" />
+                <ScalarProperty Name="inhaled" ColumnName="inhaled" />
+                <ScalarProperty Name="date_treated_oral" ColumnName="date_treated_oral" />
+                <ScalarProperty Name="days_treated_oral" ColumnName="days_treated_oral" />
+                <ScalarProperty Name="oral" ColumnName="oral" />
+                <ScalarProperty Name="airway" ColumnName="airway" />
+                <ScalarProperty Name="pulmonary" ColumnName="pulmonary" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="medecation" ColumnName="medecation" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="date_of_visit" ColumnName="date_of_visit" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="add_patient_tb">
+            <EntityTypeMapping TypeName="drDBModel.add_patient_tb">
+              <MappingFragment StoreEntitySet="add_patient_tb">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="microbiology_tb">
+            <EntityTypeMapping TypeName="drDBModel.microbiology_tb">
+              <MappingFragment StoreEntitySet="microbiology_tb">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="other_myco_culture_name" ColumnName="other_myco_culture_name" />
+                <ScalarProperty Name="none_ck" ColumnName="none_ck" />
+                <ScalarProperty Name="other_mycobacteria_culture_ck" ColumnName="other_mycobacteria_culture_ck" />
+                <ScalarProperty Name="avium_ck" ColumnName="avium_ck" />
+                <ScalarProperty Name="abscessus_ck" ColumnName="abscessus_ck" />
+                <ScalarProperty Name="tuberculosis_ck" ColumnName="tuberculosis_ck" />
+                <ScalarProperty Name="other_mycobacterial" ColumnName="other_mycobacterial" />
+                <ScalarProperty Name="source_mycrobacterial" ColumnName="source_mycrobacterial" />
+                <ScalarProperty Name="mycobacterial" ColumnName="mycobacterial" />
+                <ScalarProperty Name="other_microorganisms_name" ColumnName="other_microorganisms_name" />
+                <ScalarProperty Name="other_microorganisms_culture_ck" ColumnName="other_microorganisms_culture_ck" />
+                <ScalarProperty Name="Candida_ck" ColumnName="Candida_ck" />
+                <ScalarProperty Name="Aspergillus_ck" ColumnName="Aspergillus_ck" />
+                <ScalarProperty Name="Alcaligenes_ck" ColumnName="Alcaligenes_ck" />
+                <ScalarProperty Name="Stenotrophomonas_ck" ColumnName="Stenotrophomonas_ck" />
+                <ScalarProperty Name="Burkholderia_ck" ColumnName="Burkholderia_ck" />
+                <ScalarProperty Name="Pseudomonas_ck" ColumnName="Pseudomonas_ck" />
+                <ScalarProperty Name="MRSA_ck" ColumnName="MRSA_ck" />
+                <ScalarProperty Name="sensitive_ck" ColumnName="sensitive_ck" />
+                <ScalarProperty Name="Staphoylcoccus_ck" ColumnName="Staphoylcoccus_ck" />
+                <ScalarProperty Name="microorganisms" ColumnName="microorganisms" />
+                <ScalarProperty Name="other_source" ColumnName="other_source" />
+                <ScalarProperty Name="source_bacterial" ColumnName="source_bacterial" />
+                <ScalarProperty Name="bacterial" ColumnName="bacterial" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medication_tb">
+            <EntityTypeMapping TypeName="drDBModel.medication_tb">
+              <MappingFragment StoreEntitySet="medication_tb">
+                <ScalarProperty Name="p_short_ck" ColumnName="p_short_ck" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="c_Nasa_ck" ColumnName="c_Nasa_ck" />
+                <ScalarProperty Name="c_GERD_ck" ColumnName="c_GERD_ck" />
+                <ScalarProperty Name="c_DIOS_ck" ColumnName="c_DIOS_ck" />
+                <ScalarProperty Name="c_Asthma_ck" ColumnName="c_Asthma_ck" />
+                <ScalarProperty Name="c_ABPA_ck" ColumnName="c_ABPA_ck" />
+                <ScalarProperty Name="c_gall_ck" ColumnName="c_gall_ck" />
+                <ScalarProperty Name="c_Liver_ck" ColumnName="c_Liver_ck" />
+                <ScalarProperty Name="c_CFRD_ck" ColumnName="c_CFRD_ck" />
+                <ScalarProperty Name="c_none_ck" ColumnName="c_none_ck" />
+                <ScalarProperty Name="non_p_Supplemental_ck" ColumnName="non_p_Supplemental_ck" />
+                <ScalarProperty Name="non_p_vitamin_ck" ColumnName="non_p_vitamin_ck" />
+                <ScalarProperty Name="non_p_CF_ck" ColumnName="non_p_CF_ck" />
+                <ScalarProperty Name="non_p_Proton_ck" ColumnName="non_p_Proton_ck" />
+                <ScalarProperty Name="non_p_Pancreat_ck" ColumnName="non_p_Pancreat_ck" />
+                <ScalarProperty Name="Saline_concentration" ColumnName="Saline_concentration" />
+                <ScalarProperty Name="p_other_name" ColumnName="p_other_name" />
+                <ScalarProperty Name="p_others_ck" ColumnName="p_others_ck" />
+                <ScalarProperty Name="p_Betaagonist_ck" ColumnName="p_Betaagonist_ck" />
+                <ScalarProperty Name="p_Longacting_anticholinergic_ck" ColumnName="p_Longacting_anticholinergic_ck" />
+                <ScalarProperty Name="p_inhaled_Shortacting_ck" ColumnName="p_inhaled_Shortacting_ck" />
+                <ScalarProperty Name="p_Steroid_Bronchodilator_ck" ColumnName="p_Steroid_Bronchodilator_ck" />
+                <ScalarProperty Name="p_Steroid_inhaled_ck" ColumnName="p_Steroid_inhaled_ck" />
+                <ScalarProperty Name="p_Steroid_oral_ck" ColumnName="p_Steroid_oral_ck" />
+                <ScalarProperty Name="p_Antifungal_ck" ColumnName="p_Antifungal_ck" />
+                <ScalarProperty Name="p_stabilizer_ck" ColumnName="p_stabilizer_ck" />
+                <ScalarProperty Name="p_Mastcell_ck" ColumnName="p_Mastcell_ck" />
+                <ScalarProperty Name="p_modifier_ck" ColumnName="p_modifier_ck" />
+                <ScalarProperty Name="p_salineLeukotriene_ck" ColumnName="p_salineLeukotriene_ck" />
+                <ScalarProperty Name="p_Ibuprofen_ck" ColumnName="p_Ibuprofen_ck" />
+                <ScalarProperty Name="p_Acetylcystein_ck" ColumnName="p_Acetylcystein_ck" />
+                <ScalarProperty Name="p_Dornasealfa_ck" ColumnName="p_Dornasealfa_ck" />
+                <ScalarProperty Name="p_none_ck" ColumnName="p_none_ck" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PFT_tb">
+            <EntityTypeMapping TypeName="drDBModel.PFT_tb">
+              <MappingFragment StoreEntitySet="PFT_tb">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="FEV1_FVC_Ratio" ColumnName="FEV1_FVC_Ratio" />
+                <ScalarProperty Name="FEF25_Predicted" ColumnName="FEF25_Predicted" />
+                <ScalarProperty Name="FEF25" ColumnName="FEF25" />
+                <ScalarProperty Name="FVC_Predicted" ColumnName="FVC_Predicted" />
+                <ScalarProperty Name="FVC" ColumnName="FVC" />
+                <ScalarProperty Name="FEV1_Predicted" ColumnName="FEV1_Predicted" />
+                <ScalarProperty Name="FEV1" ColumnName="FEV1" />
+                <ScalarProperty Name="r_other_name" ColumnName="r_other_name" />
+                <ScalarProperty Name="r_other_ck" ColumnName="r_other_ck" />
+                <ScalarProperty Name="r_equipment_ck" ColumnName="r_equipment_ck" />
+                <ScalarProperty Name="r_Availability_ofPFT_ck" ColumnName="r_Availability_ofPFT_ck" />
+                <ScalarProperty Name="r_Patient_refused_ck" ColumnName="r_Patient_refused_ck" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cxr_tb">
+            <EntityTypeMapping TypeName="drDBModel.cxr_tb">
+              <MappingFragment StoreEntitySet="cxr_tb">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="Other_Findings" ColumnName="Other_Findings" />
+                <ScalarProperty Name="Ground_Glass_Appearance" ColumnName="Ground_Glass_Appearance" />
+                <ScalarProperty Name="Opacity" ColumnName="Opacity" />
+                <ScalarProperty Name="Air_Trapping" ColumnName="Air_Trapping" />
+                <ScalarProperty Name="Mucous_Plugging" ColumnName="Mucous_Plugging" />
+                <ScalarProperty Name="Atelectasis" ColumnName="Atelectasis" />
+                <ScalarProperty Name="Bronchial_Wall_Thickening" ColumnName="Bronchial_Wall_Thickening" />
+                <ScalarProperty Name="Bronchiectasis" ColumnName="Bronchiectasis" />
+                <ScalarProperty Name="CT_Findings" ColumnName="CT_Findings" />
+                <ScalarProperty Name="CXR_Findings" ColumnName="CXR_Findings" />
+                <ScalarProperty Name="r_other_name" ColumnName="r_other_name" />
+                <ScalarProperty Name="r_other_ck" ColumnName="r_other_ck" />
+                <ScalarProperty Name="r_Followup_after_exacerbation_ck" ColumnName="r_Followup_after_exacerbation_ck" />
+                <ScalarProperty Name="r_Followup_routine_ck" ColumnName="r_Followup_routine_ck" />
+                <ScalarProperty Name="r_Patientsick_ck" ColumnName="r_Patientsick_ck" />
+                <ScalarProperty Name="CXR" ColumnName="CXR" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pt_code" ColumnName="pt_code" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="upload_tb">
+            <EntityTypeMapping TypeName="drDBModel.upload_tb">
+              <MappingFragment StoreEntitySet="upload_tb">
+                <ScalarProperty Name="p_code" ColumnName="p_code" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="file_tb" ColumnName="file_tb" />
+                <ScalarProperty Name="img_tb" ColumnName="img_tb" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="drDBModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

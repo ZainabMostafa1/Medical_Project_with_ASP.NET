@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a21f5c74249948f090309a37a49b5935" Name="Diagram1">
+        <EntityTypeShape EntityType="drDBModel.patient_demographics" Width="1.5" PointX="1" PointY="2.125" />
+        <EntityTypeShape EntityType="drDBModel.visit_information_tb" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="drDBModel.add_patient_tb" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="drDBModel.microbiology_tb" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="drDBModel.medication_tb" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="drDBModel.PFT_tb" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="drDBModel.cxr_tb" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="drDBModel.upload_tb" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="drDBModel.user" Width="1.5" PointX="9.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
